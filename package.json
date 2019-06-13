@@ -1,0 +1,33 @@
+{
+  "name": "ttbd-node-nfc",
+  "version": "1.0.0",
+  "description": "A Node-RED node for NFC support on the Thingbox (http://TheThingbox.io) and TimeSquAir (http://TimeSquAir.io)",
+  "node-red": {
+    "nodes": {
+      "nfc": "nodes/nfc.js"
+    }
+  },
+  "dependencies": {
+    "is-utf8": "0.2.1"
+  },
+  "keywords": [
+    "thingbox",
+    "thethingbox",
+    "timesquair",
+    "NFC"
+  ],
+  "main": "none",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thethingbox/ttbd-node-nfc.git"
+  },
+  "author": "thethingbox <thethingbox@gmail.com> (http://thethingbox.io/)",
+  "license": "http://unlicense.org",
+  "bugs": {
+    "url": "https://github.com/TheThingBox/ttbd-node-nfc/issues"
+  },
+  "homepage": "https://github.com/TheThingBox/ttbd-node-nfc#readme"
+}

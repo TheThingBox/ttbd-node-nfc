@@ -1,0 +1,10 @@
+{
+  "nfc" : {
+    "name": "NFC",
+    "label": {
+      "name": "Name",
+      "advanced": "Advanced",
+      "broker": "Broker"
+    }
+  }
+}

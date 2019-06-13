@@ -1,0 +1,57 @@
+<script type="text/x-red" data-template-name="nfc in">
+  <div class="form-row">
+    <ul style="background: #fff; min-width: 600px; margin-bottom: 20px;" id="ttbd-node-nfc-in-tabs"></ul>
+  </div>
+  <div id="ttbd-node-nfc-in-tabs-content" style="min-height: 170px;">
+    <div id="ttbd-node-nfc-in-tab-configuration" style="display:none">
+      <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="nfc.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]nfc.label.name">
+      </div>
+    </div>
+    <div id="ttbd-node-nfc-in-tab-advanced" style="display:none">
+      <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> <span>Broker</span></label>
+        <input type="text" id="node-input-broker">
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('nfc in', {
+    category: 'hardware',
+    color:"#fff",
+    defaults: {
+      name: { value: "" },
+      broker: { value: "MQTT.Localhost", type: "mqtt-broker", required: true }
+    },
+    inputs: 0,
+    outputs: 2,
+    outputLabels: ['Tag detected', 'Tag removed'],
+    icon: "nfc.png",
+    label: function() {
+      return this.name || "NFC read" ;
+    },
+    labelStyle: function() {
+      return this.name?"node_label_italic":"";
+    },
+    oneditprepare: function() {
+      var tabs = RED.tabs.create({
+        id: "ttbd-node-nfc-in-tabs",
+        onchange: function(tab) {
+          $("#ttbd-node-nfc-in-tabs-content").children().hide();
+          $("#" + tab.id).show();
+        }
+      });
+      tabs.addTab({
+        id: "ttbd-node-nfc-in-tab-configuration",
+        label: 'configuration'
+      });
+      tabs.addTab({
+        id: "ttbd-node-nfc-in-tab-advanced",
+        label: 'advanced'
+      });
+    }
+  });
+</script>
